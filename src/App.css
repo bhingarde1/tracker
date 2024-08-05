@@ -2,6 +2,14 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
- /* color: rgb(173, 184, 194) */
+  /* background-color: #eae5e5; */
+}
 
+.nav{
+  color: white;
+  text-decoration: none;
+}
+.form{
+  display: flex;
+  /* flex-wrap: wrap; */
 }

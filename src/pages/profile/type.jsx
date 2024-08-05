@@ -1,26 +1,11 @@
-
 import React from 'react';
-import {
-  Card,
-  CardContent,
-  Typography,
-  Avatar,
-  Button,
-  Box,
-  Container,
-  TextField,
-  Grid,
-  useMediaQuery,
-  useTheme,
-  Divider,
-} from '@mui/material';
+import { Card, CardContent, Typography, Avatar, Button, Box, Container, TextField, Grid, useMediaQuery, useTheme, Divider } from '@mui/material';
 import { Edit as EditIcon } from '@mui/icons-material';
 import Navbar from '../../component/Navbar';
-import { NavLink } from 'react-router-dom';
 
 const Profile = () => {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md')); 
 
   return (
     <>
@@ -29,13 +14,12 @@ const Profile = () => {
       <Box
         sx={{
           backgroundColor: 'rgb(229, 236, 243)',
-          padding: 2,
           // minHeight: '100vh',
+          padding: 2,
           display: 'flex',
           flexDirection: isSmallScreen ? 'column' : 'row',
+          alignItems: 'flex-start',
           gap: 2,
-          marginTop:"55px"
-
         }}
       >
         {/* Profile Card */}
@@ -53,10 +37,10 @@ const Profile = () => {
             <Avatar
               sx={{ width: 100, height: 100, backgroundColor: '#6a7bf6', marginBottom: 2 }}
             />
-            <Typography variant="h4" component="div" sx={{ marginBottom: 1 }}>
+            <Typography variant="h4" component="div" sx={{ marginBottom: 2 }}>
               Pranav Bhingarde
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ marginBottom: 1 }}>
+            <Typography variant="body1" color="text.secondary" sx={{ marginBottom: 2 }}>
               9112901996
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ marginBottom: 2 }}>
@@ -67,7 +51,7 @@ const Profile = () => {
               color="primary"
               startIcon={<EditIcon />}
               sx={{ marginTop: 2 }}
-            > 
+            >
               Edit Profile
             </Button>
           </CardContent>
@@ -80,9 +64,9 @@ const Profile = () => {
             borderRadius: 2,
             boxShadow: 3,
             backgroundColor: 'white',
-            padding: 3,
+            padding: 2,
             marginTop: isSmallScreen ? 2 : 0,
-            marginLeft: isSmallScreen ? 0 : '30px',
+            marginLeft:"30px",
             width: '100%',
             maxWidth: isSmallScreen ? '100%' : '700px',
           }}
@@ -97,9 +81,12 @@ const Profile = () => {
             }}
           >
             Edit Profile
+            <Button variant="contained" color="primary" startIcon={<EditIcon />}>
+              Edit
+            </Button>
           </Typography>
 
-          <Container>
+          <Container >
             <Grid container spacing={2}>
               {[
                 { label: 'First Name', type: 'text' },
@@ -107,7 +94,7 @@ const Profile = () => {
                 { label: '.', type: 'date' },
                 { label: 'Username', type: 'text' },
                 { label: 'Email', type: 'email' },
-                { label: 'Password', type: 'password' },
+                { label: 'Password', type: 'password' }
               ].map((field, index) => (
                 <Grid item xs={12} sm={6} key={index}>
                   <TextField
@@ -127,32 +114,18 @@ const Profile = () => {
               Save Changes
             </Button>
           </Container>
+       
+         
         </Box>
+       
+        
+        
       </Box>
+      <Box sx={{backgroundColor:"rgb(229, 236, 243)",height:"500px"}}>
+             
 
-      {/* Additional Content */}
-      <Box
-        sx={{
-          backgroundColor: 'rgb(229, 236, 243)',
-          padding: 2,
-          // marginTop: 2,
-        }}
-      >
-        <Container>
-          <Card sx={{ marginBottom: 2, padding: 2, borderRadius: 2, boxShadow: 3 }}>
-            <CardContent>
-              <Typography variant="h5" component="div" gutterBottom>
-                Add Balance
-              </Typography>
-              <NavLink to="/balance">
-                <Button variant="contained" color="secondary">
-                  Add Balance
-                </Button>
-              </NavLink>
-            </CardContent>
-          </Card>
-        </Container>
-      </Box>
+             
+          </Box>
     </>
   );
 };

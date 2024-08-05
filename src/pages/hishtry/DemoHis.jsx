@@ -8,9 +8,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
 import row from "../../data/Data.json"
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, TextField, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
-
+import Navbar from '../../component/Navbar';
 
 // function createData(
 //   name: string,
@@ -30,23 +30,22 @@ import { NavLink } from 'react-router-dom';
 //   createData('Gingerbread', 356, 16.0, 49, 3.9),
 // ];
 
-const Hishtry=()=> {
-  const arr=[];
-  for(let i=0;i<=4;i++){
-    arr.push(row.expenses[i])
-  }
+const History1=()=> {
   return (
+    <>
+     <Navbar/>
     <TableContainer sx={{width:"90%",display:"flex",
     justifyContent:"center",alignItems:"center",
         margin:"auto",
         border:"1px solid black",
-        marginTop:"20px",
+        marginTop:"40px",
         padding:"10px",
           borderRadius:"10px",
-          height:"400px",
+          height:"auto",
           backgroundColor:"white",
           position:"relative",
-          marginBottom:"20px"
+        //   backgroundColor:"gray",
+          marginBottom:"40px"
 
     }} >
       <Table sx={{ minWidth: 650,margin:"auto",padding:"10px",
@@ -56,7 +55,7 @@ const Hishtry=()=> {
         <TableHead>
          
           
-          <Typography sx={{marginLeft:"10px"}}><b>Latest  History... </b> </Typography> 
+          <Typography sx={{marginLeft:"10px"}}><b>Latest transaction </b> </Typography> 
 
           <TableRow>
            
@@ -68,7 +67,7 @@ const Hishtry=()=> {
           </TableRow>
         </TableHead>
         <TableBody>
-          {arr.map((roww) => (
+          {row.expenses.map((roww) => (
             <TableRow
             //   key={row.n}
             //   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -85,14 +84,14 @@ const Hishtry=()=> {
           ))}
         </TableBody>
       </Table>
-      <Button variant='contained'  sx={{position:"absolute",top:"10px",right:"20px",textDecoration:"none",color:"white" ,width:"130px"}}>
-        <NavLink className={"nav"} sx={{color:"white"}}
-        to={"/history1"}><b >History</b></NavLink></Button>
+              
+              <TextField placeholder='search expenses' >
+                    
+              </TextField>
+      <Button variant='contained' sx={{position:"absolute",top:"10px",right:"10px"}}><NavLink to={"/expence"}>Add-Expenses</NavLink></Button>
     </TableContainer>
+    </>
   );
 }
 
-export default Hishtry;
-
-
-
+export default History1;

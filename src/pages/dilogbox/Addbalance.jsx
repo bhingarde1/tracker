@@ -8,12 +8,12 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-const Addbalance=({data})=>{
+const Balance=({})=>{
   const [open, setOpen] = React.useState(false);
   const [balance,setBalance]=React.useState(0)
   console.log(balance);
   const handle=(e)=>{
-   data(e.target.value)
+  // data(e.target.value)
     }
 
   const handleClickOpen = () => {
@@ -57,4 +57,4 @@ const Addbalance=({data})=>{
   );
 }
 
-export default Addbalance;
+export default Balance;
