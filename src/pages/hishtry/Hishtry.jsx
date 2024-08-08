@@ -46,7 +46,8 @@ const Hishtry=()=> {
           height:"400px",
           backgroundColor:"white",
           position:"relative",
-          marginBottom:"20px"
+          marginBottom:"20px",
+          marginLeft:{md:"85px",xs:"0px"}
 
     }} >
       <Table sx={{ minWidth: 650,margin:"auto",padding:"10px",

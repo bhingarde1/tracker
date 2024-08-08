@@ -147,8 +147,8 @@
         {"category":"Shoping","amount":600},
         {"category":"other","amount":800},
         {"category":"rent","amount":1200},
-        {"category":"groceries","amount":1200},
-        {"category":"partbill","amount":1200}
+        {"category":"groceries","amount":1200}  
+        
         
     ]
 }

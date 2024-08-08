@@ -89,6 +89,9 @@ const Login = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
+  let [openstate,setOpenstate]=useState(true)
+  // const [login,setLogin]=useState(false)
+  // const logindata
 
   // Handle input change
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -99,6 +102,8 @@ const Login = () => {
   const handleSubmit = () => {
     // Retrieve data from local storage
     const storedData = localStorage.getItem('registrationData');
+    const logindata=localStorage.setItem("logindata",JSON.stringify(user))
+    // const valuee=localStorage.setItem("Log"true)
     if (storedData) {
       const allUsers = JSON.parse(storedData);
 
@@ -131,24 +136,25 @@ const Login = () => {
         justifyContent: 'center'
       }}
     >
-      <Navbar />
+      {/* <Navbar setOpenstate={setOpenstate} /> */}
       <Box 
         sx={{ 
           height: 'auto', 
           display: 'flex', 
           alignItems: 'center',
           flexDirection: 'column',
-          width: "370px",
-          borderRadius: "9px",
-          marginTop: "60px",
+          width: "380px",
+          borderRadius: "10px",
+          marginTop: "37px",
           backgroundColor: "white",
-          marginRight: "400px"
+          // marginRight:"680px"
+          marginRight:{md:"39px",xs:"0px"},
         }}
       >
         <Typography 
           variant='h5' 
           sx={{ marginBottom: "20px", marginTop: "20px" }} 
-          color={"red"}
+          color={"blue"}
         >
           Login
         </Typography>
@@ -181,10 +187,11 @@ const Login = () => {
           Submit
         </Button>
         <Typography 
-          sx={{ marginBottom: "10px", color: "black" }} 
-          onClick={() => navigate('/regi')}
+          sx={{ marginBottom: "10px", color: "black",display:"inline" }} 
+          // onClick={() => navigate('/regi')}
         >
-          Don't have an account? Register
+          Don't have an account? 
+          <Typography component="span"  onClick={() => navigate('/regi')} sx={{color:"blue",cursor:"pointer",fontSize:"17px"}}> Register </Typography>
         </Typography>
       </Box>
     </Box>

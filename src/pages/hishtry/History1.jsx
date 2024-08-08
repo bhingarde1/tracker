@@ -17,6 +17,7 @@ const History1 = () => {
   // State for search input and selected category
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
+  let [openstate,setOpenstate]=useState(true)
 
   // Handler for search input
   const handleSearchChange = (event) => {
@@ -38,11 +39,13 @@ const History1 = () => {
     const matchesCategory = selectedCategory ? expense.category === selectedCategory : true;
     
     return matchesSearch && matchesCategory;
+   
   });
 
   return (
-    <Box sx={{backgroundColor:"rgb(229, 236, 243)"}}>
-      <Navbar />
+    <Box sx={{display:"flex",justifyContent:"end"}}>
+    <Box sx={{backgroundColor:"rgb(229, 236, 243)",width:openstate ? "85%":"96%"}}>
+      <Navbar setOpenstate={setOpenstate}  />
       <Box sx={{
         width: '90%',
         display: 'flex',
@@ -132,6 +135,7 @@ const History1 = () => {
           </Table>
         </TableContainer>
       </Box>
+    </Box>
     </Box>
   );
 }
