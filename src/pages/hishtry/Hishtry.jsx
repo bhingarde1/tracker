@@ -40,7 +40,7 @@ const Hishtry=()=> {
     justifyContent:"center",alignItems:"center",
         margin:"auto",
         border:"1px solid black",
-        marginTop:"20px",
+        marginTop:{md:"12px",xs:"5px"},
         padding:"10px",
           borderRadius:"10px",
           height:"400px",
@@ -48,6 +48,7 @@ const Hishtry=()=> {
           position:"relative",
           marginBottom:"20px",
           marginLeft:{md:"85px",xs:"0px"}
+          
 
     }} >
       <Table sx={{ minWidth: 650,margin:"auto",padding:"10px",

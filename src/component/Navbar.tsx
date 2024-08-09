@@ -247,6 +247,7 @@ const Navbar = ({ setOpenstate}:any) => {
 
   const logout = () => {
     localStorage.removeItem("logindata");
+    
     navigate("/login");
   };
 
