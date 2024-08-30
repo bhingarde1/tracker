@@ -415,6 +415,9 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '../../component/Navbar';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { apiList } from '../../apiList';
+import { API } from '../../network 1';
+import toast from 'react-hot-toast';
 
 // Define Zod schema for validation
 const validateDateOfBirth = (value: string | number | Date) => {
@@ -461,14 +464,24 @@ const Registration = () => {
     resolver: zodResolver(registrationSchema),
   });
 
-  const onSubmit = (data: RegistrationFormValues) => {
-    // Save data to localStorage
-    localStorage.setItem('registrationData', JSON.stringify(data));
-    console.log('Form Data:', data);
-    navigate('/login');
+  const onSubmit = async (data: RegistrationFormValues) => {
+    // Save data to localStorage/////////////////////
+    // localStorage.setItem('registrationData', JSON.stringify(data));
+    // console.log('Form Data:', data);
+    // navigate('/login');
+    // save in mongodb /////////////////////////////
+    try {
+    const url = apiList.register
+    const response = await API.post(url, {data} )
+    if(response){
+      console.log(response.success)
+      toast.success(response.message)
+    }
+    } catch (error) { 
+      console.log("data not stored",error)
+    }
+    // navigate('/login');
   };
-
-
   return (
     <Box
       sx={{

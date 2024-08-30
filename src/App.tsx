@@ -11,6 +11,8 @@ import Addexpence from './pages/dilogbox/Addexpence';
 import Hishtry from './pages/hishtry/Hishtry';
 import History1 from './pages/hishtry/History1';
 import PageNotfound from './pages/errorpage/PageNotfound';
+import AddProduct from './pages/addproduct/AddProduct';
+import UpdateProduct from './pages/updateProduct.js/UpdateProduct';
 
 
 function App() {
@@ -26,8 +28,9 @@ function App() {
         <Route path="profile" element={<Profile/>}/>
         <Route path='balance' element={<Balance/>}/>
         <Route path='expence' element={<Addexpence/>}/>
-        {/* <Route path='history' element={<Hishtry/>}/> */}
         <Route path='history1' element={<History1/>}/>
+        <Route path='addproduct' element={<AddProduct/>}/> 
+        <Route path='updateProduct' element={<UpdateProduct/>}/>
       
       </Routes>
       </BrowserRouter>

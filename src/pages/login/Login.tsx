@@ -84,6 +84,9 @@ import { Box, TextField, Typography, Button } from '@mui/material';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../component/Navbar';
+import { apiList } from '../../apiList';
+import { API } from '../../network 1';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -99,30 +102,48 @@ const Login = () => {
   };
 
   // Handle form submission
-  const handleSubmit = () => {
-    // Retrieve data from local storage
-    const storedData = localStorage.getItem('registrationData');
-    const logindata=localStorage.setItem("logindata",JSON.stringify(user))
-    // const valuee=localStorage.setItem("Log"true)
-    if (storedData) {
-      const allUsers = JSON.parse(storedData);
-
-      // Validate login credentials
-      const validUser = allUsers.email === user.email && allUsers.password === user.password
-
-      if (validUser) {
-        // Successful login
-        // setError('');
-        navigate('/'); // Redirect to home page
-      } else {
-        // Invalid credentials
-        setError('Invalid email or password');
+  const handleSubmit = async() => {
+    try {
+      const data = user;
+      console.log(data);
+      
+      const url = apiList.login
+      const response = await API.post(url, {data} )
+      if(response){
+        console.log(response.success)
+        toast.success("login success full")
+       
+      localStorage.setItem('token',JSON.stringify(response.token));
+      navigate('/')
+      // router('/')
+     
       }
-    } else {
-      setError('No users found');
-      alert("Register First")
-      navigate("/regi")
+    } catch (error) {
+      console.log(error)
     }
+    // Retrieve data from local storage
+    // const storedData = localStorage.getItem('registrationData');
+    // const logindata=localStorage.setItem("logindata",JSON.stringify(user))
+    // const valuee=localStorage.setItem("Log"true)
+    // if (storedData) {
+    //   const allUsers = JSON.parse(storedData);
+
+    //   // Validate login credentials
+    //   const validUser = allUsers.email === user.email && allUsers.password === user.password
+
+    //   if (validUser) {
+    //     // Successful login
+    //     // setError('');
+    //     navigate('/'); // Redirect to home page
+    //   } else {
+    //     // Invalid credentials
+    //     setError('Invalid email or password');
+    //   }
+    // } else {
+    //   setError('No users found');
+    //   alert("Register First")
+    //   navigate("/regi")
+    // }
   };
 
   return (

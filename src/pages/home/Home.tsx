@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 const Home = () => {
   const[openstate,setOpenstate]=useState(true);
   let nav=useNavigate();
-  let locle=localStorage.getItem("registrationData")
+  let locle=localStorage.getItem("token")
   useEffect(
     ()=>{
       if (!locle) {
